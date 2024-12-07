@@ -46,4 +46,9 @@ void ly::Application::Tick(float deltaTime)
 
 void ly::Application::Render()
 {
+    mWindow.clear();
+    sf::RectangleShape rect{sf::Vector2f{100, 100}};
+    rect.setFillColor(sf::Color(sf::Color::Cyan));
+    mWindow.draw(rect);
+    mWindow.display();
 }
