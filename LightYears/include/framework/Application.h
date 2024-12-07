@@ -12,6 +12,12 @@ namespace ly
 
     private:
         sf::RenderWindow mWindow;
+
+        float mTargetFrameRate;
+        sf::Clock mTickClock;
+
+        void Tick(float deltaTime);
+        void Render();
     };
 
 }
