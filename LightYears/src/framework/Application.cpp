@@ -34,8 +34,8 @@ void ly::Application::Run()
                 */
                 accumulativeTime -= targetDeltaTime;
                 Tick(targetDeltaTime);
-                Render();
             }
+            Render();
         }
     }
 }
