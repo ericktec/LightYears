@@ -33,9 +33,9 @@ void ly::Application::Run()
                     we update twice until it catch up to the target frame rate
                 */
                 accumulativeTime -= targetDeltaTime;
-                Tick(targetDeltaTime);
+                TickInternal(targetDeltaTime);
             }
-            Render();
+            RenderInternal();
         }
     }
 }
@@ -44,11 +44,23 @@ void ly::Application::Tick(float deltaTime)
 {
 }
 
-void ly::Application::Render()
+void ly::Application::TickInternal(float deltaTime)
+{
+    Tick(deltaTime);
+}
+
+void ly::Application::RenderInternal()
 {
     mWindow.clear();
+    Render();
+    mWindow.display();
+}
+
+void ly::Application::Render()
+{
     sf::RectangleShape rect{sf::Vector2f{100, 100}};
     rect.setFillColor(sf::Color(sf::Color::Cyan));
+    rect.setPosition(mWindow.getSize().x / 2, mWindow.getSize().y / 2);
+    rect.setOrigin(50, 50);
     mWindow.draw(rect);
-    mWindow.display();
 }

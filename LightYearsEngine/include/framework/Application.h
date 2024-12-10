@@ -16,8 +16,11 @@ namespace ly
         float mTargetFrameRate;
         sf::Clock mTickClock;
 
-        void Tick(float deltaTime);
-        void Render();
+        void RenderInternal();
+        void TickInternal(float deltaTime);
+
+        virtual void Render();
+        virtual void Tick(float deltaTime);
     };
 
 }
